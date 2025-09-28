@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        .box{
+            width: 1180px;
+            
+            margin:20px auto;
+            display:flex;
+            gap:16px;
+        }
+        .box .item{
+            
+            flex:1;
+            
+        }
+        .box .item a{
+            width:100%;
+            overflow:hidden;/*溢出隐藏*/
+            display:block;
+            transition:all.5s ease;
+            position: relative; /* 为文字层提供定位上下文 */
+            margin:10px;
+            border-radius:18px;/*给链接加圆角能让可点击的范围扩大，但是你盒子变成圆角了，图片没有变成圆角，要切掉*/
+        }
+        .box .item a:hover{
+            box-shadow:6px 10px 5px 5px #555;
+             transform:scale(1.1); 
+        }
+
+        .box .item a img{
+            width:100%;
+            display:block;
+            /* vertical-align:middle; */
+        }
+        /* 添加文字层样式 */
+        .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+            color: white;
+            padding: 15px;
+            transform: translateY(100%); /* 初始隐藏在下方 */
+            transition: transform 0.5s ease;
+            border-radius: 0 0 18px 18px; /* 匹配底部圆角 */
+        }
+        
+        /* 鼠标悬停时显示文字 */
+        .box .item a:hover .text-overlay {
+            transform: translateY(0); /* 滑入显示 */
+        }
+        
+        /* 文字样式 */
+        .text-overlay h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .text-overlay p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">
+            <a href="#">
+                <img src="../media.set/p1.jpeg" alt="1">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>自然风光</h3>
+                    <p>美丽的自然景色，令人心旷神怡</p>
+                </div>
+            </a>
+            <a href="#">
+                <img src="../media.set/2d6aa7e497a059df30d635667b1ec998.jpeg" alt="1">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>山脉</h3>
+                    <p>壮丽的山脉景观，高耸入云</p>
+                </div>
+            </a>    
+        </div>
+        <div class="item">
+            <a href="#">
+                <img src="../media.set/p2.jpeg" alt="2">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>城市夜景</h3>
+                    <p>繁华的城市夜景，灯火辉煌</p>
+                </div>
+            </a>
+            <a href="#">
+                <img src="../media.set/58e55f45e1adbb8a2d40174660cb35b7.jpeg" alt="1">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>海滩</h3>
+                    <p>阳光沙滩，度假胜地</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="#">
+                <img src="../media.set/f69e41cb1642c3360bd5bb6e700a0ecb.jpeg" alt="3">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>森林</h3>
+                    <p>神秘的森林，充满生机</p>
+                </div>
+            </a>
+            <a href="#">
+                <img src="../media.set/6e15b8e4647882b573afd3186f4dff27.jpeg" alt="1">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>沙漠</h3>
+                    <p>广袤的沙漠，金黄一片</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="#">
+                <img src="../media.set/e2652e717070269debe3df29778a889d.jpeg" alt="">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>湖泊</h3>
+                    <p>平静的湖面，倒映美景</p>
+                </div>
+            </a>
+            <a href="#">
+                <img src="../media.set/7da71c20eb6d3689497804749829e045.jpeg" alt="1">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>星空</h3>
+                    <p>璀璨星空，无限遐想</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="#">
+                <img src="../media.set/e06193c3fac5a3ab2fbe8d35c4f12171.jpeg" alt="">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>建筑</h3>
+                    <p>历史建筑，文化传承</p>
+                </div>
+            </a>
+            <a href="#">
+                <img src="../media.set/cf056bf8afbbb447eec90ae294132653.jpeg" alt="1">
+                <!-- 添加文字层 -->
+                <div class="text-overlay">
+                    <h3>花园</h3>
+                    <p>美丽花园，繁花似锦</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    垂直对齐:垂直对齐一解决图片底部空白缝隙问题
+    基线:浏览器行内元素(行内块元素)排版中存在用于对齐的基线(baseline)
+    所有的浏览器都有四条线：顶线(top)中线(middle)基线(baseline)底线(bottom)
+    因为图片默认和文字基线对齐,所有我们在切的时候图片的下面两个角并不能切的和上面两个角一样！
+    解决方案:
+    1.把图片转换为块级元素。
+    2.设置图片对齐方式不是基线对齐即可。(只要不是baseline就可以解决)
+    img {
+    vertical-align: top;
+    }
+    baseline    默认,基线对齐
+    top         顶部对齐
+    middle      中部对齐
+    bottom      底部对齐
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
